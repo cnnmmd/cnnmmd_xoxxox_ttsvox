@@ -1,0 +1,16 @@
+networks:
+  default:
+    name: xoxxox_netmid
+    external: true
+services:
+  xoxxox_ttsvox:
+    image: xoxxox_envvox:001
+    container_name: xoxxox_ttsvox
+    volumes:
+    - ../../../export:/opt/common
+    - ../../../import/cnnmmd_xoxxox_ttsvox/appvox:/opt/appvox
+    env_file:
+    - ./envdir.txt
+    ports:
+    - 14201:80
+    command: bash -c "cd /opt/appvox/voicevox_core && python /opt/common/bin/xoxxox/srvtts.py --engine xoxxox/engine_ttsvox"

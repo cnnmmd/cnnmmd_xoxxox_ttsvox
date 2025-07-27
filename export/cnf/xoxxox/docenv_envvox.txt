@@ -1,0 +1,11 @@
+FROM ubuntu:22.04
+
+ENV OPTAPT=""
+#ENV OPTAPT="-o Acquire::AllowInsecureRepositories=true -o Acquire::AllowDowngradeToInsecureRepositories=true"
+RUN apt-get ${OPTAPT} -y update
+RUN apt-get ${OPTAPT} -y upgrade
+RUN apt-get ${OPTAPT} -y install python3
+RUN apt-get ${OPTAPT} -y install pip
+RUN ln -s /usr/bin/python3.10 /usr/bin/python
+RUN pip install https://github.com/VOICEVOX/voicevox_core/releases/download/0.16.0/voicevox_core-0.16.0-cp310-abi3-manylinux_2_34_$(uname -m).whl
+RUN pip install aiohttp
