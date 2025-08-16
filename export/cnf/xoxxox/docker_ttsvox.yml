@@ -4,7 +4,7 @@ networks:
     external: true
 services:
   xoxxox_ttsvox:
-    image: xoxxox_envvox:001
+    image: xoxxox/envvox:001
     container_name: xoxxox_ttsvox
     volumes:
     - ../../../export:/opt/common
